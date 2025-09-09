@@ -1,0 +1,1 @@
+from sample.view.views.user import UserViewSet

@@ -5,7 +5,6 @@ from .common.base import LogicalDeleteModel
 class Tweet(LogicalDeleteModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="tweets", verbose_name="ユーザー")
     content = models.CharField(max_length=280, verbose_name="内容")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="作成日時")
 
     class Meta:
         db_table = "tweets"

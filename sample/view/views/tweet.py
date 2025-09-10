@@ -1,11 +1,11 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
-from sample.model.models.user import User
-from sample.serializer.user import UserSerializer
+from sample.model.models.tweet import Tweet
+from sample.serializer.tweet import TweetSerializer
 
-class UserViewSet(ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class TweetViewSet(ModelViewSet):
+    queryset = Tweet.objects.all()
+    serializer_class = TweetSerializer
 
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)

@@ -7,5 +7,4 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'birthday', 'email')
     
     def save(self, **kwargs):
-        kwargs['name'] = "Anonymous"
         return super().save(**kwargs)

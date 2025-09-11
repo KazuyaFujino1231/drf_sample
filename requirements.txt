@@ -1,4 +1,7 @@
 Django>=5.2,<6.0
 djangorestframework>=3.14,<4.0
 psycopg2-binary>=2.9,<3.0
-
+drf-spectacular
+pyproject-flake8
+isort
+black

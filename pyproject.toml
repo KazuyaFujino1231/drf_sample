@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "drf-sample"
+version = "0.1.0"
+description = "DRF勉強会用サンプルAPI"
+authors = ["Your Name  <your-email@example.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.8.1,<4.0"
+
+[tool.poetry.group.dev.dependencies]
+drf-spectacular = "*"
+flake8 = "^6.1.0"
+isort = "*"
+black = "*"
+
+[tool.black]
+line-length = 119
+
+[tool.isort]
+profile = "black"
+line_length = 119
+
+[tool.flake8]
+max-line-length = 119
+extend-ignore = [
+    "E203", # ":"の前の空白を入れないルール
+    "W503", # 演算子の前に改行しないようにするルール
+    "E501", # black かけても line too long になるところはしかたない
+    "W291", # black かけても trailing whitespace になるのはおそらく文字列のなか
+    "E722", # エラーはすべて補足したい
+]
+exclude = [
+    "__pycache__",
+    "*/migrations/",
+]
+per-file-ignores = [
+    "*/__init__.py:F401,F403"
+]

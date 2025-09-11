@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('model', '0001_initial'),
+        ("model", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='phone_number',
-            field=models.IntegerField(null=True, verbose_name='電話番号'),
+            model_name="user",
+            name="phone_number",
+            field=models.IntegerField(null=True, verbose_name="電話番号"),
         ),
         migrations.AlterField(
-            model_name='tweet',
-            name='created_at',
+            model_name="tweet",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True),
         ),
     ]

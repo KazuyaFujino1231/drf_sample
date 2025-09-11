@@ -8,40 +8,69 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('name', models.CharField(max_length=100, verbose_name='名前')),
-                ('birthday', models.DateField(verbose_name='生年月日')),
-                ('email', models.EmailField(max_length=254, unique=True, verbose_name='メールアドレス')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                ("name", models.CharField(max_length=100, verbose_name="名前")),
+                ("birthday", models.DateField(verbose_name="生年月日")),
+                (
+                    "email",
+                    models.EmailField(max_length=254, unique=True, verbose_name="メールアドレス"),
+                ),
             ],
             options={
-                'verbose_name': 'ユーザー',
-                'verbose_name_plural': 'ユーザー',
-                'db_table': 'users',
+                "verbose_name": "ユーザー",
+                "verbose_name_plural": "ユーザー",
+                "db_table": "users",
             },
         ),
         migrations.CreateModel(
-            name='Tweet',
+            name="Tweet",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('deleted_at', models.DateTimeField(null=True)),
-                ('content', models.CharField(max_length=280, verbose_name='内容')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='作成日時')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tweets', to='model.user', verbose_name='ユーザー')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                ("deleted_at", models.DateTimeField(null=True)),
+                ("content", models.CharField(max_length=280, verbose_name="内容")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="作成日時"),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="tweets",
+                        to="model.user",
+                        verbose_name="ユーザー",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'ツイート',
-                'verbose_name_plural': 'ツイート',
-                'db_table': 'tweets',
+                "verbose_name": "ツイート",
+                "verbose_name_plural": "ツイート",
+                "db_table": "tweets",
             },
         ),
     ]

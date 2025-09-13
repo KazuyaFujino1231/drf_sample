@@ -10,11 +10,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name="user",
-            name="phone_number",
-            field=models.IntegerField(null=True, verbose_name="電話番号"),
-        ),
         migrations.AlterField(
             model_name="tweet",
             name="created_at",

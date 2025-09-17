@@ -1,4 +1,9 @@
 # Docker系
+initialize:
+	docker-compose down -v --rmi all --remove-orphans
+	docker-compose build
+	docker-compose up
+
 up:
 	docker-compose up
 

@@ -14,6 +14,7 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 10,
+    "EXCEPTION_HANDLER": "sample.utils.custom_exception_handler",
 }
 
 INSTALLED_APPS = [

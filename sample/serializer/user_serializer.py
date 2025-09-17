@@ -27,17 +27,9 @@ class UserCreateSerializer(UserSerializer):
             print("\tdata:", data)
             return super().to_internal_value(data)
         except serializers.ValidationError as exc:
-            # exc.detailはOrderedDict。全てのエラーをラップ
-            for field, errors in exc.detail.items():
-                new_errors = []
-                for err in errors:
-                    # 既にdict形式ならそのまま、strならラップ
-                    if isinstance(err, dict) and "message" in err and "code" in err:
-                        new_errors.append(err)
-                    else:
-                        code = getattr(err, "code", "invalid")
-                        new_errors.append({"message": str(err), "code": code})
-                exc.detail[field] = new_errors
+            # ここでexc.detailを書き換えてカスタムメッセージにできる
+            if "email" in exc.detail:
+                exc.detail["email"] = ["このメールアドレスは既に使われています。"]
             raise exc
 
     def validate_email(self, value):

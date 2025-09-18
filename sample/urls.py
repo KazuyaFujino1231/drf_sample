@@ -8,9 +8,13 @@ from .view import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("user", views.UserViewSet.as_view({"get": "list", "post": "create"})),
+    path(
+        "user/<int:pk>",
+        views.UserViewSet.as_view({"get": "retrieve", "put": "update", "delete": "destroy"}),
+    ),
     path("tweet", views.TweetViewSet.as_view({"get": "list", "post": "create"})),
     path(
-        "tweet/<int:tweet_id>",
+        "tweet/<int:pk>",
         views.TweetViewSet.as_view({"get": "retrieve", "put": "update", "delete": "destroy"}),
     ),
 ]
